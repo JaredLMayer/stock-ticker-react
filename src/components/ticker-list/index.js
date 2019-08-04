@@ -17,6 +17,8 @@ export default class TickerList extends React.Component {
   // not ideal to fetch data in a component like this
   // normally would create custom backend to avoid CORS issues
   // however due to lack of time, going to take this route for these purposes
+  // I have added a proxy to the package.json to avoid CORS issues
+  // Normally, this list would be put in a config file using config module
   fetchData() {
     let symbolList = [
       'AAPL', 
@@ -35,6 +37,8 @@ export default class TickerList extends React.Component {
       'CAT'
     ];
 
+    // I truly did not want to call the api for each symbol, however I was having a ton
+    // of trouble finding the endpoint where I could send in multiple symbols in 1 call :(
     symbolList.forEach(symbol => {
       fetch(`/v1/bars/day?symbols=${symbol}&limit=1`, {
         method: "GET",
@@ -76,11 +80,17 @@ export default class TickerList extends React.Component {
                   <h3>{asset.currentPrice}</h3>
                 </div>
                 <div className="currentDate col">
+                  {/* market time is just calculating the current date above. I could not figure
+                  out where the endpoint was for this data */}
                   <h6 className="tickerListLabel">Market Time</h6>
                   <h3>{asset.currentDate}</h3>
                 </div>
                 <div className="averagePrice col">
                   <h6 className="tickerListLabel">Intraday High/Low</h6>
+                  {/* could not get to this part. I would break this into a separate component 
+                    it would calculate the position at which the "marker" would need to sit based
+                    on the average between the low and high prices (add and divide by 2).
+                  */}
                   <h3>{asset.lowPrice}<div className="priceSlider"></div>{asset.highPrice}</h3>
                 </div>
               </div>
