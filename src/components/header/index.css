@@ -17,9 +17,17 @@
 }
 
 .searchBar input {
-  background-color: black;
-  opacity: 0.3;
+  background-color: none;
+  opacity: 0.4;
   border: none;
   height: 30px;
   width: 212px;
+  font-size: 16px;
+  color: black;
+}
+.searchBar ::placeholder {
+  color: black;
+  font-size: 16px;
+  font-weight: 500;
+  opacity: 1;
 }

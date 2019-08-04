@@ -6,11 +6,18 @@
   min-width: 400px;
 }
 
-.assetContainer h3:first-child {
+.assetContainer:last-child {
+  margin-bottom: 10px;
+}
+
+.assetContainer div:first-child {
   padding-left: 10px;
 }
-.assetContainer h3:last-child {
+.assetContainer div:last-child {
   padding-right: 10px;
+}
+.assetContainer div {
+  line-height: 0;
 }
 
 .flex-grid {
@@ -18,4 +25,16 @@
 }
 .flex-grid .col {
   flex: 1;
+}
+.priceSlider {
+  display: inline-block;
+  height: 6px;
+  min-width: 30px;
+  background-color: gray;
+  vertical-align: middle;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.tickerListLabel {
+  color: #afaeae;
 }

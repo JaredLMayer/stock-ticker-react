@@ -48,14 +48,12 @@ export default class TickerList extends React.Component {
       })
       .then(parsedJSON => {
         let date = new Date().toLocaleTimeString();
-        let averagePrice = Math.floor(parsedJSON[symbol][0].l + parsedJSON[symbol][0].h/2)
         this.setState({tickerAssets: this.state.tickerAssets.concat({
           tickerSymbol: symbol,
           currentPrice: parsedJSON[symbol][0].c,
           highPrice: parsedJSON[symbol][0].h,
           lowPrice: parsedJSON[symbol][0].l,
-          currentDate: date,
-          averagePrice: averagePrice
+          currentDate: date
         })})
       })
       .catch(error => { console.error('parsing failed: ', error) });
@@ -69,10 +67,22 @@ export default class TickerList extends React.Component {
           this.state.tickerAssets.map(asset => {
             return (
               <div key={asset.tickerSymbol} className="assetContainer flex-grid">
-                <h3 className="tickerSymbol col">{asset.tickerSymbol}</h3>
-                <h3 className="currentPrice col">{asset.currentPrice}</h3>
-                <h3 className="currentDate col">{asset.currentDate}</h3>
-                <h3 className="averagePrice col">{asset.averagePrice}</h3>
+                <div className="tickerSymbol col">
+                  <h6 className="tickerListLabel">Symbol</h6>
+                  <h3>{asset.tickerSymbol}</h3>
+                </div>
+                <div className="currentPrice col">
+                  <h6 className="tickerListLabel">Price</h6>
+                  <h3>{asset.currentPrice}</h3>
+                </div>
+                <div className="currentDate col">
+                  <h6 className="tickerListLabel">Market Time</h6>
+                  <h3>{asset.currentDate}</h3>
+                </div>
+                <div className="averagePrice col">
+                  <h6 className="tickerListLabel">Intraday High/Low</h6>
+                  <h3>{asset.lowPrice}<div className="priceSlider"></div>{asset.highPrice}</h3>
+                </div>
               </div>
             )
           })

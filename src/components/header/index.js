@@ -11,6 +11,7 @@ export default class Header extends React.Component {
           <Input
             className="searchBar"
             type="text"
+            placeholder="Search..."
           />
         </div>
       </div>
