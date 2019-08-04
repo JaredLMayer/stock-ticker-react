@@ -1,0 +1,25 @@
+.headerContainer {
+  background-color: #00d28a;
+  min-width: 400px;
+}
+
+.headerContainer .searchBar, .headerContainer .tickerHeader {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.tickerHeader {
+  padding-left: 20px;
+}
+
+.searchBar {
+  margin-left: 25%;
+}
+
+.searchBar input {
+  background-color: black;
+  opacity: 0.3;
+  border: none;
+  height: 30px;
+  width: 212px;
+}

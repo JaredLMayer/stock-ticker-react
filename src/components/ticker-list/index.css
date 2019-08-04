@@ -1,0 +1,21 @@
+.assetContainer {
+  border: 1px solid black;
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  min-width: 400px;
+}
+
+.assetContainer h3:first-child {
+  padding-left: 10px;
+}
+.assetContainer h3:last-child {
+  padding-right: 10px;
+}
+
+.flex-grid {
+  display: flex;
+}
+.flex-grid .col {
+  flex: 1;
+}
