@@ -77,7 +77,7 @@ export default class TickerList extends React.Component {
                 </div>
                 <div className="currentPrice col">
                   <h6 className="tickerListLabel">Price</h6>
-                  <h3>{asset.currentPrice}</h3>
+                  <h3 className="currentVal">{asset.currentPrice}</h3>
                 </div>
                 <div className="currentDate col">
                   {/* market time is just calculating the current date above. I could not figure

@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import TickerList from './components/ticker-list'
+import Filter from './components/filter'
 import Header from './components/header'
 
 class App extends React.Component {
@@ -17,6 +18,7 @@ class App extends React.Component {
     return (
       <div>
         <Header />
+        <Filter />
         <TickerList />
       </div>
     )

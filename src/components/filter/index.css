@@ -1,0 +1,13 @@
+.filter-container {
+  float: right;
+  display: block;
+  width: 100%;
+}
+
+.filter-label {
+  text-align: right;
+}
+
+.filter-dropdown {
+  float: right;
+}
