@@ -1,8 +1,8 @@
 .assetContainer {
   border: 1px solid black;
   margin-top: 10px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 40px;
+  margin-right: 40px;
   min-width: 400px;
 }
 
@@ -37,4 +37,7 @@
 }
 .tickerListLabel {
   color: #afaeae;
+}
+.averagePrice {
+  min-width: 200px;
 }
