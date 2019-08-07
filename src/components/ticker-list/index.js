@@ -1,5 +1,6 @@
 import React from 'react';
-import Filter from '../filter/index.js'
+import Filter from '../filter/index.js';
+import AssetDetails from '../asset-details/index.js';
 import css from './index.css';
 
 export default class TickerList extends React.Component {
@@ -85,6 +86,7 @@ export default class TickerList extends React.Component {
     });
     this.setState({currentDetails: clickedAsset});
   }
+
   goBack = () => {
     this.setState({showDetailsPage: false});
   }
@@ -97,11 +99,7 @@ export default class TickerList extends React.Component {
           this.state.showDetailsPage ? (
             <div>
               <button onClick={()=> this.goBack()}>Back to List</button>
-              <h1>{this.state.currentDetails[0].tickerSymbol}</h1>
-              <h1>{this.state.currentDetails[0].currentPrice}</h1>
-              <h1>{this.state.currentDetails[0].currentDate}</h1>
-              <h1>{this.state.currentDetails[0].lowPrice}</h1>
-              <h1>{this.state.currentDetails[0].highPrice}</h1>
+              <AssetDetails assetDetails={this.state.currentDetails} />
             </div>
           ) : this.state.tickerAssets.map(asset => {
               return (

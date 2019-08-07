@@ -6,6 +6,10 @@
   min-width: 400px;
 }
 
+.assetContainer:hover {
+  cursor: pointer;
+}
+
 .assetContainer:last-child {
   margin-bottom: 10px;
 }
