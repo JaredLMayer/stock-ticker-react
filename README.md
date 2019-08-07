@@ -1,49 +1,30 @@
- <div class="center">
-<p align="center"><img src="https://user-images.githubusercontent.com/523933/49741959-91a1da00-fc65-11e8-911f-521331f87174.png" align="center" width="20%" height="20%"></p>
-  <h3 align="center">Clear Street</h3>
-  <p align="center">
-  Front-end Developer Screening
-</p>
-</div>
+## Running the application
 
----
+This project depends on API keys to hit Alpaca API. Please refer to the provided keys, or if you do not have keys, you must obtain them from the owner.
 
-This repository contains parts of your interview. This is your own private version of this repository to complete your work. Only you and and Clear Street members can view your repository.
+Create a file in the project root, `.env`. Include API keys there.
 
-Take a branch of `master` to do your work. Create a pull-request with your notes and merge your work into `master` to signal the team that you are ready for us to evaluate your project. Make sure we have complete instructions for how to compile and run your project. 
+Run `npm install`;
 
-## goals
+Run `npm run dev`;
 
-The goal of this exercise is to practice designing models and interfaces, and to get a feel for how you architect front-end code.
+## About
 
-There aren't good or bad solutions; rather, there are solutions that match the requirements and some that don't. There are solutions that might be considered elegant by some and solutions that would be considered clever. We want to see you iterate on this and show us what the best of what you do!
-
-Given the following mock up please create a sample application that includes the required features listed below.
-
-![screenshot 2018-12-10 at 4 04 02 pm](https://user-images.githubusercontent.com/523933/49761484-40a9da00-fc95-11e8-9559-e9ef9c288634.png)
+My process in building this application began with `create-react-app`. I felt it was the most straight forward and quickest way to get going. Although not ideal, I fetch all the data in the `TickerList` component and pass that through the children with state and props.
+I am using the `dotenv` module in order to successfully conceal api keys that should not be public.
+In order to mitigate CORS issues when running this application locally, I have added a `proxy:` key to the `package.json`. Ideally, I would create a custom backend calling relative routes, which would alleviate that work-around.
 
 
-## expectations
+## Comment from PR
 
-- Please set aside 4 hours for this exercise. If you can't complete the project in time that's fine just let us know:
-  - Remaining items to be finished
-- If we need to run the code on our end please provide instructions on how to do so.
-- Don't stress out over this exercise, it's a chance to open a conversation about your work on a real project.
+Hey ClearStreet,
 
-#### required features
-- [ ] Should be built with Javascript, as single page application or isomorphic app
-- [ ] The ability to see a list of symbols with Name, Price, Market Time, Intraday High/Low
-- [ ] Tickers shouldn't be hardcoded, you can pull from a JSON file, Use a 3rd party API or Craft your own API
-- [ ] Should be able to sort the page by Gainers/Losers
-- [ ] Should be able to click on a symbol and view it on it's own page
+The instructions on how to run the application are included in the README. Please let me know if you have any issues running! I am sending the api keys via encrypted file and email to Carmen for the .env file. I actually really enjoyed working on this project!
+Outstanding Items:
 
-#### What Can I use/What are you looking for?
-- Should include a README explaining your process
-- Use the tools you are comfortable with. You can use any framework, plugins or libraries you like. You can write this entirely in vanilla JS if you really want to.
-- Please use this exercise as a way to show us what you like about Frontend Development. Some people live for performance, others for a11y, or great UX or writing tests. We are aware of the time constraint, if what you love takes time, put comments in.
-
-## Clear Street Evaluation
-- How much time did you spend on the exercise, what parts took longer?
-- What were the hard parts, what parts did you enjoy most?
-- What parts of the code are you proud of, were there any novel solutions you created?
-- Is your code tested? Why/why not? How would you test it (or test it better)?
+- Search Bar functionality (I know this isn't in the actual requirements, but I saw it in the mockup and I'd love to incorporate that functionality)
+- Needed to find true endpoint for "market time": I honestly found the Alpaca docs extremely confusing. I couldn't figure out which endpoint was correct for GET'ing all the stocks in 1 call, and I didn’t want to spend too much time on that piece. Therefore, I have an inefficient way of doing it by calling the API for each ticker symbol, nor did I have time to properly create a custom backend :/.
+- Summary and Stats for details page: unsure if there was an endpoint for that. Figured it wouldn’t be much to create a blank text area.
+- TESTING: couldn’t really spend time at the end on testing given my work and interview schedule at the moment. Sorry about that but generally, I would incorporate tests using Nock API to test the api calls are coming back as expected. I would also incorporate front end testing with screenshot comparisons of the components to make sure those look as expected.
+- Refactoring: I could refactor a TON on this. I would move the API calls to a backend, I would split up the components more than I did. Also there is definitely some redundant CSS. On that note, I would’ve incorporated Sass. Absolutely love Sass and feel that regular CSS gets messy and bloated quickly.
+Thank you guys so much for the consideration either way and hope you enjoy looking it over!
