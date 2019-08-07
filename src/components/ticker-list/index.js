@@ -1,4 +1,5 @@
 import React from 'react';
+import Filter from '../filter/index.js'
 import css from './index.css';
 
 export default class TickerList extends React.Component {
@@ -12,7 +13,6 @@ export default class TickerList extends React.Component {
   componentDidMount() {
     this.fetchData();
   }
-
 
   // not ideal to fetch data in a component like this
   // normally would create custom backend to avoid CORS issues
@@ -64,9 +64,14 @@ export default class TickerList extends React.Component {
     })
   }
 
+  handleFilter = (dataFromChild) => {
+    this.setState({tickerAssets: dataFromChild});
+  }
+
   render() {
     return (
       <div>
+        <Filter assets={this.state.tickerAssets} handleFiltering={this.handleFilter} />
         {
           this.state.tickerAssets.map(asset => {
             return (

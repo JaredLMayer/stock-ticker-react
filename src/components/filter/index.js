@@ -1,5 +1,6 @@
 import React from 'react';
 import css from './index.css';
+import { runInThisContext } from 'vm';
 
 export default class Filter extends React.Component {
   constructor(props) {
@@ -7,24 +8,28 @@ export default class Filter extends React.Component {
     this.state = {
       filterOption: ''
     }
+
+    console.log(this.props)
   }
 
   handleFilterChange(e) {
-    let values = {};
-    Object.values(document.getElementsByClassName('assetContainer')).forEach(element => {
-      console.log(parseInt(element.children[1].getElementsByClassName('currentVal')[0].outerText));
-      values[parseInt(element.children[1].getElementsByClassName('currentVal')[0].outerText)] = element;
-      // values.push(parseInt(element.children[1].getElementsByClassName('currentVal')[0].outerText));
-    });
-    let sortedValues = Object.keys(values).sort((a, b) => a - b);
-    console.log(sortedValues)
-    let newDom = [];
-    sortedValues.forEach(currPrice => newDom.push(values[currPrice]));
-    document.getElementsByClassName('assetsWrapper').innerHTML = newDom;
-    
-    this.setState({filterOption: e.target.value}, () => {
+
+    return this.setState({filterOption: e.target.value}, () => {
       
-    });
+      let values = [];
+      
+      if (this.state.filterOption === "Gainers") {
+        values = this.props.assets.sort((a, b) => {
+          return b.currentPrice - a.currentPrice;
+        });
+      } else if (this.state.filterOption === "Losers") {
+        values = this.props.assets.sort((a, b) => {
+          return a.currentPrice - b.currentPrice;
+        });
+      }
+      return this.props.handleFiltering(values);
+    })
+
   }
 
   render() {
