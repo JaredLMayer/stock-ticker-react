@@ -1,4 +1,4 @@
-// import React from 'react';
+import css from './index.css';
 
 export default class TickerAsset extends React.component {
   constructor(props) {

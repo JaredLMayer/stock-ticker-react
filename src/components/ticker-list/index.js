@@ -99,7 +99,7 @@ export default class TickerList extends React.Component {
         {
           this.state.showDetailsPage ? (
             <div>
-              <button onClick={()=> this.goBack()}>Back to List</button>
+              <button className="backButton" onClick={()=> this.goBack()}>Back to List</button>
               <AssetDetails assetDetails={this.state.currentDetails} />
             </div>
           ) : this.state.tickerAssets.map(asset => {

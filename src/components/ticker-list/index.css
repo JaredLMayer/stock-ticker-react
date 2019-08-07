@@ -45,3 +45,10 @@
 .averagePrice {
   min-width: 200px;
 }
+
+.backButton {
+  float: left;
+  position: relative;
+  margin-top: 2rem;
+  margin-left: 1.5rem;
+}

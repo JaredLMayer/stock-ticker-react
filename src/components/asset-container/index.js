@@ -1,4 +1,5 @@
 import React from 'react';
+import css from './index.css';
 
 export default function Asset(props) {
   

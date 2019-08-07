@@ -1,0 +1,32 @@
+.assetContainer {
+  border: 1px solid black;
+  margin-top: 10px;
+  margin-left: 40px;
+  margin-right: 40px;
+  min-width: 400px;
+}
+
+.assetContainer:hover {
+  cursor: pointer;
+}
+
+.assetContainer:last-child {
+  margin-bottom: 10px;
+}
+
+.assetContainer div:first-child {
+  padding-left: 10px;
+}
+.assetContainer div:last-child {
+  padding-right: 10px;
+}
+.assetContainer div {
+  line-height: 0;
+}
+
+.flex-grid {
+  display: flex;
+}
+.flex-grid .col {
+  flex: 1;
+}
