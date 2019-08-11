@@ -52,3 +52,15 @@
   margin-top: 2rem;
   margin-left: 1.5rem;
 }
+
+.error {
+  height: 500px;
+  display: block;
+  /* text-align: center; */
+}
+.error h1 {
+  font-size: 15px;
+  text-align: center;
+  position: relative;
+  top: 5rem;
+}

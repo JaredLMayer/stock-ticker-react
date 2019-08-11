@@ -11,6 +11,7 @@ export default class TickerList extends React.Component {
       tickerAssets: [],
       showDetailsPage: false,
       currentDetails: '',
+      error: false,
     }
   }
 
@@ -72,7 +73,10 @@ export default class TickerList extends React.Component {
           return b.currentPrice - a.currentPrice;
         })
       })
-      .catch(error => { console.error('parsing failed: ', error) });
+      .catch(error => { 
+        console.error('fetching API data failed: ', error);
+        this.setState({error: true});
+      });
     })
   }
 
@@ -103,13 +107,14 @@ export default class TickerList extends React.Component {
               <AssetDetails assetDetails={this.state.currentDetails} />
             </div>
           ) : this.state.tickerAssets.map(asset => {
-              return (
-                <div key={asset.tickerSymbol}>
+            return (
+              <div key={asset.tickerSymbol}>
                   <Asset assetInfo={asset} onClick={e => this.handleAssetClick(asset.tickerSymbol)} />
                 </div>
               )
             })
           }
+          {this.state.error ? (<div className="error"><h1>Sorry! We can't fetch any market data at this time. Please check your internet connection or access keys.</h1></div>) : ''}
       </div>
     )
   }
