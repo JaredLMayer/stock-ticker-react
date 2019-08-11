@@ -1,5 +1,5 @@
 import React from 'react';
-import css from './index.css';
+import css from './index.css'; // eslint-disable-line
 import Input from 'react-toolbox/lib/input';
 
 export default class Header extends React.Component {

@@ -2,7 +2,7 @@ import React from 'react';
 import Filter from '../filter/index.js';
 import AssetDetails from '../asset-details/index.js';
 import Asset from '../asset-container/index.js';
-import css from './index.css';
+import css from './index.css'; // eslint-disable-line
 
 export default class TickerList extends React.Component {
   constructor(props) {
@@ -104,8 +104,8 @@ export default class TickerList extends React.Component {
             </div>
           ) : this.state.tickerAssets.map(asset => {
               return (
-                <div>
-                  <Asset key={asset.tickerSymbol} assetInfo={asset} onClick={e => this.handleAssetClick(asset.tickerSymbol)} />
+                <div key={asset.tickerSymbol}>
+                  <Asset assetInfo={asset} onClick={e => this.handleAssetClick(asset.tickerSymbol)} />
                 </div>
               )
             })

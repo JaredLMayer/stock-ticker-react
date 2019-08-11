@@ -1,6 +1,5 @@
 import React from 'react';
-import css from './index.css';
-import { runInThisContext } from 'vm';
+import css from './index.css'; // eslint-disable-line
 
 export default class Filter extends React.Component {
   constructor(props) {
@@ -31,7 +30,6 @@ export default class Filter extends React.Component {
   }
 
   render() {
-    console.log(this.state.filterOption)
     return (
       <div>
         <div className="filter-container">

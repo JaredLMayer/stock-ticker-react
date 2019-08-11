@@ -1,5 +1,5 @@
 import React from 'react';
-import css from './index.css';
+import css from './index.css'; // eslint-disable-line
 
 export default function Asset(props) {
   
